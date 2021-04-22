@@ -56,7 +56,7 @@ class Person {
     this.stomach = [];
   }
   toString(){
-    return `${this.name}, ${this.age}`
+    return `${this.name}, ${this.age}`;
   }
 }
   
@@ -93,7 +93,7 @@ class Car {
       const newDistance = this.tank * this.milesPerGallon;
       this.tank = 0;
       this.odometer += newDistance;
-      return `I ran out of fuel at ${this.odometer} miles!`
+      return `I ran out of fuel at ${this.odometer} miles!`;
     }
   }
 }
@@ -117,7 +117,7 @@ class Lambdasian {
     this.location = attr.location;
   }
   speak(){
-    return `Hello my name is ${this.name}, I am from ${this.location}`
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
 }
   
@@ -174,15 +174,15 @@ class Student extends Lambdasian{
   listSubjects(){
     let newString = '';
     for(let i = 0; i < this.favSubjects.length; i++){
-      newString += ` ${this.favSubjects[i]},`
+      newString += ` ${this.favSubjects[i]},`;
     }
     return `Loving ${newString}!`;
   }
   PRAssignment(subject){
-    return `${this.name} has submitted a PR for ${subject}`
+    return `${this.name} has submitted a PR for ${subject}`;
   }
   sprintChallenge(subject){
-    return `${this.name} has begun sprint challenge on ${subject}`
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
   
@@ -199,9 +199,19 @@ class Student extends Lambdasian{
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
- }
+class ProjectManager extends Instructor{
+  constructor(attr){
+    super(attr);
+    this.gradClassName = attr.gradClassName;
+    this.favInstructor = attr.favInstructor;
+  }
+  standUp(slack){
+    return `${this.name} announces to ${slack}, @channel standy times!`;
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
+}
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
